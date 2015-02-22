@@ -7,7 +7,7 @@
 		<META http-equiv="expires" content="0">
 		<META HTTP-EQUIV="Expires" CONTENT="Tue, 01 Jan 1980 1:00:00 GMT">
 		<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
-		<title>Strut - Beta</title>
+		<title>Strut - Custom</title>
 		<!-- build:css styles/main.css -->
 		<link rel="stylesheet" href="components/bootstrap/css/bootstrap.css"></link>
 		<link rel="stylesheet" href="components/bootstrap/css/bootstrap-responsive.css"></link>
@@ -25,16 +25,7 @@
 		<link rel="shortcut icon" href="img/strut-icon.png">
 		<link rel="apple-touch-icon-precomposed" href="img/strut-touch.png">
 		<link rel="stylesheet" type="text/css" href="styles/built.css"></link>
-		<script type="text/javascript" src="preview_export/download_assist/swfobject.js"></script>
-		<script>
-  	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  	ga('create', 'UA-42322531-1', 'strut.io');
-  	ga('send', 'pageview');
-	</script>
+		<script type="text/javascript" src="preview_export/download_assist/swfobject.js"></script>		
 	</head>
 	<body class="bg-default">
 		<!--[IF IE]>
@@ -136,5 +127,24 @@
 		<!-- endbuild -->
 		<div id="modals">
 		</div>
+		<div class="slideWell" style="top:0px;margin-left:0;width:14.5%;padding-bottom:0;">
+			<div style="color: white; text-align: center; padding: 5%; background-color: red; margin: 5%; margin-top: 50%; background-color: #363636; background-image: -moz-linear-gradient(top, #666670, #46464d); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#666670), to(#46464d)); background-image: -webkit-linear-gradient(top, #666670, #46464d); background-image: -o-linear-gradient(top, #666670, #46464d); background-image: linear-gradient(to bottom, #666670, #46464d); background-repeat: repeat-x;" onclick="$('#savedppts').hide();$('.container-fluid').show();">App</div>
+			<div style="color: white; text-align: center; padding: 5%; background-color: red;margin: 5%; background-color: #363636; background-image: -moz-linear-gradient(top, #666670, #46464d); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#666670), to(#46464d)); background-image: -webkit-linear-gradient(top, #666670, #46464d); background-image: -o-linear-gradient(top, #666670, #46464d); background-image: linear-gradient(to bottom, #666670, #46464d); background-repeat: repeat-x;" onclick="$('.container-fluid').hide();$('#savedppts').show();populateDiv();">Dashboard</div>  		
+		</div>
+		<div id="savedppts" style="display:none;width: 85%; margin-left: 15%; top: 0; bottom: 0; position: absolute;">
+		</div>
+		<script>
+			function populateDiv(){
+				var div = document.getElementById('savedppts');
+				div.innerHTML = "";
+				for (var i = 0; i < localStorage.length; i++){    			
+	    			if(localStorage.key(i).indexOf(".strut") > -1){
+	    				// console.log((localStorage.key(i)));
+	    				var toAppendDiv = "<div style='padding: 2%; margin: 2%; width: 150px; border: 2px solid rgb(116, 116, 116); border-radius: 15px;text-align:center;float:left;height:50px;'><a>"+(localStorage.key(i))+"</a></div>";
+	    				div.innerHTML = div.innerHTML + toAppendDiv;    				
+	    			}
+				}
+			}			
+		</script>
 	</body>
 </html>
