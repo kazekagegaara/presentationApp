@@ -1,5 +1,6 @@
 # presentationApp
-On a custom build on top of strut.io
+On a custom build on top of [strut.io](https://github.com/tantaman/Strut)
+
 
 # installation instructions
 
